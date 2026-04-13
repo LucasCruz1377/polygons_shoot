@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c6fgnmw33h312"]
+
+[ext_resource type="Script" uid="uid://c88585sg45tkn" path="res://battle_area.gd" id="1_fu4hl"]
+[ext_resource type="PackedScene" uid="uid://do2fi6mvjjoq1" path="res://player.tscn" id="1_n4gje"]
+[ext_resource type="PackedScene" uid="uid://cwsakc0j1hoyc" path="res://parede.tscn" id="2_fu4hl"]
+[ext_resource type="PackedScene" uid="uid://csrpvdvmes1a8" path="res://enemy.tscn" id="4_qdh06"]
+
+[sub_resource type="Gradient" id="Gradient_q6r6c"]
+colors = PackedColorArray(3.1886623e-07, 0.1989061, 0.19890603, 1, 0.034981657, 0.051092014, 0.08807104, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdubu"]
+gradient = SubResource("Gradient_q6r6c")
+fill = 1
+fill_from = Vector2(0.47391304, 0.5043478)
+
+[node name="Battle_area" type="Node2D" unique_id=937167224]
+script = ExtResource("1_fu4hl")
+metadata/_edit_vertical_guides_ = [1183.0]
+metadata/_edit_horizontal_guides_ = [674.0, 678.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=423854753]
+position = Vector2(608.7, 358)
+scale = Vector2(18.607922, 10.996636)
+texture = SubResource("GradientTexture2D_kdubu")
+
+[node name="CharacterBody2D" parent="." unique_id=1457330626 groups=["player"] instance=ExtResource("1_n4gje")]
+position = Vector2(475, 235)
+
+[node name="Parede" parent="." unique_id=862347999 instance=ExtResource("2_fu4hl")]
+position = Vector2(590, 0)
+scale = Vector2(1.1248273, 0.95716095)
+
+[node name="Parede2" parent="." unique_id=1319559668 instance=ExtResource("2_fu4hl")]
+position = Vector2(558, 674)
+scale = Vector2(1.0768163, 0.97312206)
+
+[node name="Parede3" parent="." unique_id=246887301 instance=ExtResource("2_fu4hl")]
+position = Vector2(0, 174)
+rotation = -1.5707964
+scale = Vector2(1.0768163, 0.97312206)
+
+[node name="Parede4" parent="." unique_id=1450349022 instance=ExtResource("2_fu4hl")]
+position = Vector2(1183, 235)
+rotation = -1.5707964
+scale = Vector2(1.0768163, 0.97312206)
+
+[node name="Node" type="Node" parent="." unique_id=159318720]
+
+[node name="spawner1" type="Marker2D" parent="Node" unique_id=1776270182 groups=["spawners"]]
+position = Vector2(99, 99)
+
+[node name="spawner2" type="Marker2D" parent="Node" unique_id=308421577 groups=["spawners"]]
+position = Vector2(1120, 86)
+
+[node name="spawner3" type="Marker2D" parent="Node" unique_id=699265310 groups=["spawners"]]
+position = Vector2(1110, 594)
+
+[node name="spawner4" type="Marker2D" parent="Node" unique_id=1674730259 groups=["spawners"]]
+position = Vector2(79, 609)
+
+[node name="Enemy" parent="." unique_id=1570180816 instance=ExtResource("4_qdh06")]
+position = Vector2(167, 177)

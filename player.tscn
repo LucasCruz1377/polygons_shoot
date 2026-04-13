@@ -14,7 +14,7 @@ fill_to = Vector2(0.90588236, 0.31176472)
 [sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
 radius = 20.024984
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1457330626]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1457330626 groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=2090995044]
