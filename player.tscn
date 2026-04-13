@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://do2fi6mvjjoq1"]
+
+[ext_resource type="Script" uid="uid://s3ie3imatvpt" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="Gradient" id="Gradient_4flbx"]
+colors = PackedColorArray(0.9843137, 1, 0.27058825, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onrkg"]
+gradient = SubResource("Gradient_4flbx")
+fill = 1
+fill_from = Vector2(0.5058824, 0.5117647)
+fill_to = Vector2(0.90588236, 0.31176472)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 20.024984
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1457330626]
+script = ExtResource("1_4flbx")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2090995044]
+position = Vector2(-15.027628, -26.62648)
+rotation = 1.8855863
+color = Color(0.5294118, 1, 0.14509805, 1)
+polygon = PackedVector2Array(38.333996, -16.71797, 14, -43, 12, -8)
+uv = PackedVector2Array(34, -16, 14, -43, 12, -8)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=547992662]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1180
+limit_bottom = 678
+position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=459571741]
+scale = Vector2(2.0095387, 1.9162949)
+texture = SubResource("GradientTexture2D_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694652783]
+shape = SubResource("CircleShape2D_4flbx")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=566907530]
+position = Vector2(21, 0)

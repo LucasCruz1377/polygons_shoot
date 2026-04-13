@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bhs7gnxhqncsl"]
+
+[ext_resource type="Script" uid="uid://do4crbo3n1x7v" path="res://fireball.gd" id="1_sf4mh"]
+
+[sub_resource type="Gradient" id="Gradient_wi6of"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sf4mh"]
+gradient = SubResource("Gradient_wi6of")
+fill = 1
+fill_from = Vector2(0.5117647, 0.5117647)
+fill_to = Vector2(0.9117647, 0.13529412)
+
+[sub_resource type="Gradient" id="Gradient_olwj8"]
+colors = PackedColorArray(1, 1, 1, 1, 18.892157, 18.892157, 18.892157, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wdani"]
+gradient = SubResource("Gradient_olwj8")
+fill = 1
+fill_from = Vector2(0.5, 0.5058824)
+fill_to = Vector2(0.5058824, 0.5352941)
+
+[sub_resource type="Gradient" id="Gradient_nix7o"]
+offsets = PackedFloat32Array(0, 0.5, 0.88709676, 0.983871)
+colors = PackedColorArray(1, 1, 0, 1, 0.7254902, 1, 0, 1, 0.39607844, 1, 0, 1, 0.93333334, 0, 0.36078432, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m4vqi"]
+gradient = SubResource("Gradient_nix7o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lk87q"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(-11, 0, 0)
+spread = 0.0
+initial_velocity_max = 228.56999
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+color_ramp = SubResource("GradientTexture1D_m4vqi")
+hue_variation_min = -1.0
+hue_variation_max = -1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf4mh"]
+size = Vector2(4, 4)
+
+[node name="fireball" type="Node2D" unique_id=962539795]
+script = ExtResource("1_sf4mh")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=354221910]
+position = Vector2(-10.045824, -1.7881393e-07)
+scale = Vector2(0.68606806, 0.12499999)
+color = Color(1, 1, 0, 1)
+texture = SubResource("GradientTexture2D_sf4mh")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=719571465]
+scale = Vector2(1.038488, 1)
+amount = 300
+texture = SubResource("GradientTexture2D_wdani")
+lifetime = 0.11
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_lk87q")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=424105477]
+position = Vector2(-1.8, 0.56805205)
+scale = Vector2(1.0263289, 1.431948)
+color = Color(0.59424686, 0.9752943, 0, 1)
+polygon = PackedVector2Array(0.35639763, -1.7933977, 2.811143, -1.7933977, 3.8319273, -1.0885699, 4, 0, 3, 1, 0, 1, -1, 0, -0.83451796, -1.161483)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1653364209]
+rect = Rect2(-2, -2, 4, 4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1939166821]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1607775460]
+shape = SubResource("RectangleShape2D_sf4mh")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
