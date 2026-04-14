@@ -15,6 +15,8 @@ fill_to = Vector2(0.90588236, 0.31176472)
 radius = 20.024984
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1457330626 groups=["player"]]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_4flbx")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=2090995044]
@@ -25,11 +27,10 @@ polygon = PackedVector2Array(38.333996, -16.71797, 14, -43, 12, -8)
 uv = PackedVector2Array(34, -16, 14, -43, 12, -8)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=547992662]
-zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = 0
-limit_right = 1180
-limit_bottom = 678
+limit_right = 1636
+limit_bottom = 1145
 position_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=459571741]
@@ -37,6 +38,7 @@ scale = Vector2(2.0095387, 1.9162949)
 texture = SubResource("GradientTexture2D_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694652783]
+visible = false
 shape = SubResource("CircleShape2D_4flbx")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=566907530]

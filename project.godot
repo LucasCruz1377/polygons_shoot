@@ -15,6 +15,21 @@ run/main_scene="uid://c6fgnmw33h312"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[global_group]
+
+bullets=""
+enemies=""
+player=""
+parede=""
+spawners=""
+
 [input]
 
 accelerate={
@@ -48,6 +63,17 @@ ctrlflip={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Colisores"
+2d_render/layer_2="Player"
+2d_render/layer_3="Inimigo"
+2d_render/layer_4="Balas"
+2d_physics/layer_1="Colisores"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Inimigos"
+2d_physics/layer_4="Balas"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -56,3 +82,4 @@ ctrlflip={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+viewport/hdr_2d=true

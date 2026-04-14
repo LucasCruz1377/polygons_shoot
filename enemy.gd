@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 const SPEED = 100.0
+var hp = 1
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	seguir(delta)
 	move_and_slide()
 	
+	if hp <= 0:
+		queue_free()
 func seguir(delta):
 	var players = get_tree().get_nodes_in_group("player")
 	
@@ -19,3 +22,4 @@ func seguir(delta):
 	velocity += direcao * SPEED * delta
 	
 	look_at(target.global_position)
+	

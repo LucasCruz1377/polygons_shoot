@@ -8,7 +8,7 @@ const ENEMY = preload("res://enemy.tscn")
 func _ready() -> void:
 	print(target)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if timer >= 0:
 		timer -= 1 
 	else:

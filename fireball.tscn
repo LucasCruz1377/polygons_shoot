@@ -41,9 +41,11 @@ hue_variation_min = -1.0
 hue_variation_max = -1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sf4mh"]
-size = Vector2(4, 4)
+size = Vector2(6, 6)
 
-[node name="fireball" type="Node2D" unique_id=962539795]
+[node name="fireball" type="Area2D" unique_id=1865514222 groups=["bullets"]]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_sf4mh")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=354221910]
@@ -69,10 +71,8 @@ polygon = PackedVector2Array(0.35639763, -1.7933977, 2.811143, -1.7933977, 3.831
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1653364209]
 rect = Rect2(-2, -2, 4, 4)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1939166821]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1607775460]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607775460]
 shape = SubResource("RectangleShape2D_sf4mh")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
