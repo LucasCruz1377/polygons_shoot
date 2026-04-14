@@ -44,15 +44,18 @@ hue_variation_max = -1.0
 size = Vector2(6, 6)
 
 [node name="fireball" type="Area2D" unique_id=1865514222 groups=["bullets"]]
+light_mask = 2
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_sf4mh")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=354221910]
-position = Vector2(-10.045824, -1.7881393e-07)
-scale = Vector2(0.68606806, 0.12499999)
+position = Vector2(0, -1.7881393e-07)
+scale = Vector2(0.1875, 0.12499999)
 color = Color(1, 1, 0, 1)
+energy = 1.15
 texture = SubResource("GradientTexture2D_sf4mh")
+texture_scale = 2.9
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=719571465]
 scale = Vector2(1.038488, 1)

@@ -15,6 +15,8 @@ fill_to = Vector2(0.90588236, 0.31176472)
 radius = 20.024984
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1457330626 groups=["player"]]
+modulate = Color(1.0039216, 0.9999855, 0.9999855, 1)
+self_modulate = Color(0.70109016, 1.0042744, 0.1144091, 1)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_4flbx")
@@ -22,7 +24,7 @@ script = ExtResource("1_4flbx")
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=2090995044]
 position = Vector2(-15.027628, -26.62648)
 rotation = 1.8855863
-color = Color(0.5294118, 1, 0.14509805, 1)
+color = Color(0.53333336, 1, 0.101960786, 1)
 polygon = PackedVector2Array(38.333996, -16.71797, 14, -43, 12, -8)
 uv = PackedVector2Array(34, -16, 14, -43, 12, -8)
 
@@ -34,7 +36,7 @@ limit_bottom = 1145
 position_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=459571741]
-scale = Vector2(2.0095387, 1.9162949)
+scale = Vector2(1.7317743, 1.651419)
 texture = SubResource("GradientTexture2D_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694652783]

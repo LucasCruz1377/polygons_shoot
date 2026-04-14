@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csrpvdvmes1a8"]
 
 [ext_resource type="Script" uid="uid://b7e1mcmiichgn" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://coyynmarr6r7e" path="res://enemydeathpart.tscn" id="2_4gyqm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xaro"]
 radius = 15.0
@@ -19,6 +20,7 @@ z_index = 1
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_7k104")
+Deathparticle = ExtResource("2_4gyqm")
 
 [node name="corpo" type="Polygon2D" parent="." unique_id=1427657541]
 rotation = 0.38544607
@@ -27,10 +29,10 @@ color = Color(1, 0, 0.23137255, 1)
 polygon = PackedVector2Array(-5.263616, -12.972833, 2.7532916, -6.513017, 13.899464, -5.6395884, 6.513017, 2.7532916, 4.8876433, 12.046202, -2.7532916, 6.513017, -13.899464, 5.6395884, -6.513017, -2.7532916)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893412006]
-visible = false
 shape = SubResource("CircleShape2D_7xaro")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1721206178]
+scale = Vector2(1.3932126, 1.4281172)
 color = Color(1, 0, 0.23137255, 1)
 energy = 1.46
 texture = SubResource("GradientTexture2D_4gyqm")

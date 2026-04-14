@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwsakc0j1hoyc" path="res://parede.tscn" id="2_fu4hl"]
 
 [sub_resource type="Gradient" id="Gradient_q6r6c"]
-colors = PackedColorArray(3.1886623e-07, 0.1989061, 0.19890603, 1, 0.034981657, 0.051092014, 0.08807104, 1)
+colors = PackedColorArray(0.024744183, 0.05429472, 0.08889032, 1, 0.024744183, 0.05429472, 0.08889032, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kdubu"]
 gradient = SubResource("Gradient_q6r6c")
@@ -14,10 +14,16 @@ fill_from = Vector2(0.47391304, 0.5043478)
 
 [sub_resource type="Environment" id="Environment_fu4hl"]
 background_mode = 3
-tonemap_mode = 1
-adjustment_enabled = true
-adjustment_contrast = 1.25
-adjustment_saturation = 2.0
+tonemap_mode = 3
+glow_enabled = true
+glow_levels/1 = 2.0
+glow_levels/2 = 2.0
+glow_levels/3 = 2.0
+glow_levels/4 = 2.0
+glow_levels/5 = 2.0
+glow_levels/6 = 2.0
+glow_levels/7 = 2.0
+glow_intensity = 0.64
 
 [node name="Battle_area" type="Node2D" unique_id=937167224]
 script = ExtResource("1_fu4hl")
@@ -26,7 +32,7 @@ metadata/_edit_vertical_guides_ = [1636.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=423854753]
 position = Vector2(821.6232, 572.05383)
-scale = Vector2(25.261772, 17.68582)
+scale = Vector2(26.171156, 17.63445)
 texture = SubResource("GradientTexture2D_kdubu")
 
 [node name="CharacterBody2D" parent="." unique_id=1457330626 instance=ExtResource("1_n4gje")]
@@ -68,5 +74,5 @@ position = Vector2(1528, 1071)
 [node name="spawner4" type="Marker2D" parent="Node" unique_id=1674730259 groups=["spawners"]]
 position = Vector2(113, 1058)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2080839763]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2036701793]
 environment = SubResource("Environment_fu4hl")

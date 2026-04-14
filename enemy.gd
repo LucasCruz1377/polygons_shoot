@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var Deathparticle : PackedScene
+
 const SPEED = 100.0
 var hp = 1
 
@@ -7,8 +9,7 @@ func _physics_process(delta: float) -> void:
 	seguir(delta)
 	move_and_slide()
 	
-	if hp <= 0:
-		queue_free()
+	die()
 func seguir(delta):
 	var players = get_tree().get_nodes_in_group("player")
 	
@@ -23,3 +24,12 @@ func seguir(delta):
 	
 	look_at(target.global_position)
 	
+func die():
+	if hp <= 0:
+		var _particle = Deathparticle.instantiate()
+		_particle.position = global_position
+		_particle.rotation = global_rotation
+		_particle.emitting = true
+		get_tree().current_scene.add_child(_particle)
+		
+		queue_free()

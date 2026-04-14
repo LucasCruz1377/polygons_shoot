@@ -43,7 +43,7 @@ func brake(delta:float):
 	velocity -= transform.x * (SPEED/2) * delta
 func fire():
 		var instance_bullet = BULLET.instantiate()
-		get_tree().root.add_child(instance_bullet)
+		get_tree().current_scene.add_child(instance_bullet)
 		instance_bullet.global_position = firehole.global_position
 		instance_bullet.rotation = rotation
 		cooldown = CD_MAX
@@ -55,12 +55,12 @@ func hiperdash():
 	if hiperdashing:
 		return
 	hiperdashing = true
-	Engine.time_scale = 0.3
+	Engine.time_scale = 0.2
 	await get_tree().create_timer(0.2).timeout
 	Engine.time_scale = 1
 	velocity += transform.x * SPEED * 10
-	await get_tree().create_timer(0.1).timeout
-	velocity *= 0.3
+	await get_tree().create_timer(0.15).timeout
+	velocity *= 0.2
 	
 	await get_tree().create_timer(0.3).timeout
 	hiperdashing = false
