@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c07646k0ienly" path="res://enemydeathpart.gd" id="1_85ype"]
 
 [sub_resource type="Gradient" id="Gradient_8h2to"]
-offsets = PackedFloat32Array(0.55932206, 1)
+offsets = PackedFloat32Array(0.6423358, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_85ype"]
@@ -26,10 +26,10 @@ scale_curve = SubResource("CurveTexture_85ype")
 color_ramp = SubResource("GradientTexture1D_85ype")
 
 [node name="enemydeathpart" type="GPUParticles2D" unique_id=217961140]
-self_modulate = Color(2.454227, 0, 0, 1)
+modulate = Color(1, 0, 0.23137255, 1)
+self_modulate = Color(4.415934, 4.415934, 4.415934, 1)
 emitting = false
-amount = 200
-lifetime = 1.5
+amount = 50
 one_shot = true
 explosiveness = 1.0
 randomness = 0.26

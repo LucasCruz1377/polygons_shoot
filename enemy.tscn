@@ -16,6 +16,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.88495576, 0.21238938)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1570180816 groups=["enemies"]]
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
 z_index = 1
 collision_layer = 4
 collision_mask = 15

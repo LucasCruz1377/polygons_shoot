@@ -24,10 +24,10 @@ window/stretch/aspect="expand"
 
 [global_group]
 
+parede=""
 bullets=""
 enemies=""
 player=""
-parede=""
 spawners=""
 
 [input]
