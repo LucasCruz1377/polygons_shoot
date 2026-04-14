@@ -30,6 +30,7 @@ color = Color(1, 0, 0.23137255, 1)
 polygon = PackedVector2Array(-5.263616, -12.972833, 2.7532916, -6.513017, 13.899464, -5.6395884, 6.513017, 2.7532916, 4.8876433, 12.046202, -2.7532916, 6.513017, -13.899464, 5.6395884, -6.513017, -2.7532916)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1893412006]
+visible = false
 shape = SubResource("CircleShape2D_7xaro")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1721206178]

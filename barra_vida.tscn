@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cawlfryapqjyx"]
+
+[ext_resource type="Script" uid="uid://3q3tq710t3o4" path="res://barra_vida.gd" id="1_sidov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u58gr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.96862745, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sidov"]
+bg_color = Color(0, 0.96862745, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ji5u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no00b"]
+bg_color = Color(0, 0.96862745, 0, 1)
+
+[node name="Fundo" type="ProgressBar" unique_id=930752498]
+offset_right = 285.0
+offset_bottom = 53.0
+theme_override_styles/background = SubResource("StyleBoxFlat_u58gr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sidov")
+show_percentage = false
+script = ExtResource("1_sidov")
+
+[node name="Progresso" type="ProgressBar" parent="." unique_id=194965622]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 277.0
+offset_bottom = 45.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7ji5u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_no00b")
+show_percentage = false

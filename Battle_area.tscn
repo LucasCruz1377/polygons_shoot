@@ -2,18 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c88585sg45tkn" path="res://battle_area.gd" id="1_fu4hl"]
 [ext_resource type="PackedScene" uid="uid://do2fi6mvjjoq1" path="res://player.tscn" id="1_n4gje"]
-[ext_resource type="PackedScene" uid="uid://cwsakc0j1hoyc" path="res://parede.tscn" id="2_fu4hl"]
-
-[sub_resource type="Gradient" id="Gradient_q6r6c"]
-colors = PackedColorArray(0.024744183, 0.05429472, 0.08889032, 1, 0.024744183, 0.05429472, 0.08889032, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdubu"]
-gradient = SubResource("Gradient_q6r6c")
-fill = 1
-fill_from = Vector2(0.47391304, 0.5043478)
+[ext_resource type="PackedScene" uid="uid://cawlfryapqjyx" path="res://barra_vida.tscn" id="3_fu4hl"]
 
 [sub_resource type="Environment" id="Environment_fu4hl"]
 background_mode = 3
+background_canvas_max_layer = 1
 tonemap_mode = 3
 glow_enabled = true
 glow_levels/1 = 2.0
@@ -23,42 +16,30 @@ glow_levels/4 = 2.0
 glow_levels/5 = 2.0
 glow_levels/6 = 2.0
 glow_levels/7 = 2.0
-glow_intensity = 0.64
+glow_intensity = 1.0
+glow_bloom = 0.12
+
+[sub_resource type="Gradient" id="Gradient_q6r6c"]
+colors = PackedColorArray(0.024744183, 0.05429472, 0.08889032, 1, 0.024744183, 0.05429472, 0.08889032, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdubu"]
+gradient = SubResource("Gradient_q6r6c")
+fill = 1
+fill_from = Vector2(0.47391304, 0.5043478)
 
 [node name="Battle_area" type="Node2D" unique_id=937167224]
 script = ExtResource("1_fu4hl")
-metadata/_edit_horizontal_guides_ = [1145.0]
-metadata/_edit_vertical_guides_ = [1636.0]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2036701793]
+environment = SubResource("Environment_fu4hl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=423854753]
-position = Vector2(821.6232, 572.05383)
-scale = Vector2(26.171156, 17.63445)
+position = Vector2(1943.6234, 1308.5)
+scale = Vector2(89.01177, 61.078125)
 texture = SubResource("GradientTexture2D_kdubu")
 
 [node name="CharacterBody2D" parent="." unique_id=1457330626 instance=ExtResource("1_n4gje")]
 position = Vector2(475, 235)
-
-[node name="Parede" parent="." unique_id=862347999 instance=ExtResource("2_fu4hl")]
-position = Vector2(699.00006, -13)
-scale = Vector2(1.819428, 0.95716095)
-collision_mask = 14
-
-[node name="Parede2" parent="." unique_id=1319559668 instance=ExtResource("2_fu4hl")]
-position = Vector2(776, 1130)
-scale = Vector2(1.4368175, 0.97312206)
-collision_mask = 14
-
-[node name="Parede3" parent="." unique_id=246887301 instance=ExtResource("2_fu4hl")]
-position = Vector2(0, 174)
-rotation = -1.5707964
-scale = Vector2(1.824502, 0.8804669)
-collision_mask = 14
-
-[node name="Parede4" parent="." unique_id=1450349022 instance=ExtResource("2_fu4hl")]
-position = Vector2(1619, 642)
-rotation = -1.5707964
-scale = Vector2(1.0768163, 0.97312206)
-collision_mask = 14
 
 [node name="Node" type="Node" parent="." unique_id=159318720]
 
@@ -66,13 +47,18 @@ collision_mask = 14
 position = Vector2(99, 99)
 
 [node name="spawner2" type="Marker2D" parent="Node" unique_id=308421577 groups=["spawners"]]
-position = Vector2(1551, 86)
+position = Vector2(3401, 160)
 
 [node name="spawner3" type="Marker2D" parent="Node" unique_id=699265310 groups=["spawners"]]
-position = Vector2(1528, 1071)
+position = Vector2(3388, 2270)
 
 [node name="spawner4" type="Marker2D" parent="Node" unique_id=1674730259 groups=["spawners"]]
-position = Vector2(113, 1058)
+position = Vector2(128, 2272)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2036701793]
-environment = SubResource("Environment_fu4hl")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1702364142]
+
+[node name="Fundo" parent="CanvasLayer" unique_id=930752498 instance=ExtResource("3_fu4hl")]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 305.0
+offset_bottom = 73.0

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://do2fi6mvjjoq1"]
 
 [ext_resource type="Script" uid="uid://s3ie3imatvpt" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://b4dprqgdg4pi0" path="res://player_death_parts.tscn" id="2_onrkg"]
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 colors = PackedColorArray(0.9843137, 1, 0.27058825, 1, 0, 0, 0, 0)
@@ -60,6 +61,7 @@ self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_4flbx")
+DeathParticle = ExtResource("2_onrkg")
 
 [node name="corpo" type="Polygon2D" parent="." unique_id=2090995044]
 position = Vector2(-15.027628, -26.62648)
@@ -69,11 +71,11 @@ polygon = PackedVector2Array(38.333996, -16.71797, 14, -43, 12, -8)
 uv = PackedVector2Array(34, -16, 14, -43, 12, -8)
 
 [node name="camera" type="Camera2D" parent="." unique_id=547992662]
+limit_enabled = false
 limit_left = 0
 limit_top = 0
 limit_right = 1636
 limit_bottom = 1145
-position_smoothing_enabled = true
 
 [node name="luz" type="PointLight2D" parent="." unique_id=459571741]
 scale = Vector2(1.7317743, 1.651419)

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b4dprqgdg4pi0"]
+
+[sub_resource type="Gradient" id="Gradient_jrxwc"]
+offsets = PackedFloat32Array(0.228, 0.252)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tm7k8"]
+gradient = SubResource("Gradient_jrxwc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_my7f5"]
+offsets = PackedFloat32Array(0.4293478, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4otrb"]
+gradient = SubResource("Gradient_my7f5")
+
+[sub_resource type="CurveTexture" id="CurveTexture_g86f5"]
+
+[sub_resource type="Curve" id="Curve_m0gx7"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1dmkk"]
+curve = SubResource("Curve_m0gx7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lyo18"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+linear_accel_curve = SubResource("CurveTexture_g86f5")
+scale_curve = SubResource("CurveTexture_1dmkk")
+color_ramp = SubResource("GradientTexture1D_4otrb")
+turbulence_noise_strength = 12.68
+turbulence_noise_scale = 10.0
+turbulence_noise_speed_random = 3.1
+
+[node name="PlayerDeathParts" type="GPUParticles2D" unique_id=2026184711]
+modulate = Color(0.21568628, 1, 0.101960786, 1)
+self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_tm7k8")
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lyo18")
