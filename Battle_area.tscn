@@ -64,3 +64,27 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 305.0
 offset_bottom = 73.0
+
+[node name="ContadorPontos" type="Label" parent="CanvasLayer" unique_id=1644039224]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 235.0
+offset_top = 28.0
+offset_right = 331.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "PONTOS:"
+
+[node name="Pontos" type="Label" parent="CanvasLayer" unique_id=451615583]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 338.0
+offset_top = 28.0
+offset_right = 407.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "0"

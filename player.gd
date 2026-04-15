@@ -9,16 +9,20 @@ extends CharacterBody2D
 const BULLET = preload("res://fireball.tscn")
 const acceleration = 200.00
 const TURN_SPD = 5.00
-const SPEED = 300.00
+const SPEED = 500.00
 const CD_MAX = 10
 const MAX_HEALTH = 100
 const MAX_SPEED = 5 * SPEED
 const MIN_SPEED = MAX_SPEED * 0.4 * -1 
+
 var health = MAX_HEALTH
 var cooldown = CD_MAX
 var mouseaim = true
 var hiperdashing = false
 var vivo = true
+var giroblock = false
+var ctrlblock = false
+
 func _process(delta: float) -> void:
 	health_bar.value = health
 	
@@ -34,11 +38,12 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		die()
 	
-	if !hiperdashing and vivo: #se nao dash e vivo, controla
+	if !giroblock and vivo: #se nao dash e vivo, controla
 		if mouseaim:
 			look_at(get_global_mouse_position())
 		if !mouseaim:
 			arrowsctrl(delta)
+	if !ctrlblock and vivo:
 		if Input.is_action_pressed("accelerate") and velocity.length() <= MAX_SPEED:
 			accelerate(delta)
 		if Input.is_action_pressed("brake") and velocity.length() >= MIN_SPEED:
@@ -52,9 +57,6 @@ func _process(delta: float) -> void:
 	move_and_slide() 
 	
 	colidir_com_inimigo()
-
-	
-
 func tomar_dano(corpo):
 	health -= corpo.dmg
 func accelerate(delta:float):
@@ -73,17 +75,21 @@ func hiperdash():
 	if hiperdashing:
 		return
 	hiperdashing = true
+	ctrlblock = true
 	Engine.time_scale = 0.2
 	await get_tree().create_timer(0.2).timeout
+	giroblock = true
 	particles.emitting = true
 	Engine.time_scale = 1
 	velocity += transform.x * SPEED * 10
 	await get_tree().create_timer(0.15).timeout
-	velocity *= 0.2
+	velocity *= 0.05
 	
 	await get_tree().create_timer(0.3).timeout
-	particles.emitting = false
 	hiperdashing = false
+	ctrlblock = false
+	giroblock = false
+	particles.emitting = false
 func die():
 	velocity *= 0
 	vivo = false
@@ -102,4 +108,3 @@ func colidir_com_inimigo():
 				tomar_dano(corpo)
 			else:
 				corpo.hp -= 100
-			

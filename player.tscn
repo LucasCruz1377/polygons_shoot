@@ -60,6 +60,8 @@ modulate = Color(1.0039216, 0.9999855, 0.9999855, 1)
 self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 collision_layer = 2
 collision_mask = 13
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_4flbx")
 DeathParticle = ExtResource("2_onrkg")
 
