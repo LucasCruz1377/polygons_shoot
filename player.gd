@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var DeathParticle : PackedScene
+
 @onready var ponta: Marker2D = $ponta
 @onready var particles: GPUParticles2D = $particles
 @onready var health_bar: ProgressBar = $"../CanvasLayer/Fundo"
@@ -11,45 +12,47 @@ const TURN_SPD = 5.00
 const SPEED = 300.00
 const CD_MAX = 10
 const MAX_HEALTH = 100
-
+const MAX_SPEED = 5 * SPEED
+const MIN_SPEED = MAX_SPEED * 0.4 * -1 
 var health = MAX_HEALTH
 var cooldown = CD_MAX
 var mouseaim = true
 var hiperdashing = false
+var vivo = true
 func _process(delta: float) -> void:
 	health_bar.value = health
 	
-	position.x = wrap(position.x,0,4000)
-	position.y = wrap(position.y,0,2500)
+	position.x = wrap(position.x,0,960)
+	position.y = wrap(position.y,0,540)
 	
 	if cooldown >= 0:
 		cooldown -= 1
 	
-	if Input.is_action_just_pressed("ctrlflip"):
+	if Input.is_action_just_pressed("ctrlflip"): # switch entre com mouse e com teclado
 		mouseaim = !mouseaim
 
-		
-	if !hiperdashing:
+	if health <= 0:
+		die()
+	
+	if !hiperdashing and vivo: #se nao dash e vivo, controla
 		if mouseaim:
 			look_at(get_global_mouse_position())
 		if !mouseaim:
 			arrowsctrl(delta)
-		if Input.is_action_pressed("accelerate"):
+		if Input.is_action_pressed("accelerate") and velocity.length() <= MAX_SPEED:
 			accelerate(delta)
-		if Input.is_action_pressed("brake"):
+		if Input.is_action_pressed("brake") and velocity.length() >= MIN_SPEED:
 			brake(delta)
 			
 	if Input.is_action_just_pressed("ui_accept"):
 		hiperdash()
 	if Input.is_action_pressed("fire") and cooldown <= 0 and !hiperdashing:
 		fire()
-		
-	move_and_slide()
-	for i in get_slide_collision_count():
-		var colisao = get_slide_collision(i)
-		var corpo = colisao.get_collider()
-		if corpo.is_in_group("enemies"):
-			tomar_dano(corpo)
+	
+	move_and_slide() 
+	
+	colidir_com_inimigo()
+
 	
 
 func tomar_dano(corpo):
@@ -82,9 +85,21 @@ func hiperdash():
 	particles.emitting = false
 	hiperdashing = false
 func die():
-	if health <= 0:
-		var _particle = DeathParticle.instantiate()
-		_particle.position = global_position
-		_particle.rotation = global_rotation
-		_particle.emitting = true
-		get_tree().current_scene.add_child(_particle)
+	velocity *= 0
+	vivo = false
+	var _particle = DeathParticle.instantiate()
+	_particle.position = global_position
+	_particle.rotation = global_rotation
+	_particle.emitting = true
+	get_tree().current_scene.add_child(_particle)
+	await get_tree().create_timer(1.5).timeout
+	queue_free()
+func colidir_com_inimigo():
+		for i in get_slide_collision_count(): #colidir com inimigos
+			var colisao = get_slide_collision(i)
+			var corpo = colisao.get_collider()
+			if corpo.is_in_group("enemies") and !hiperdashing:
+				tomar_dano(corpo)
+			else:
+				corpo.hp -= 100
+			

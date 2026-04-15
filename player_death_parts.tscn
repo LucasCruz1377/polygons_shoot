@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b4dprqgdg4pi0"]
 
+[ext_resource type="Script" uid="uid://bnv25e0am6s6t" path="res://player_death_parts.gd" id="1_tm7k8"]
+
 [sub_resource type="Gradient" id="Gradient_jrxwc"]
 offsets = PackedFloat32Array(0.228, 0.252)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -16,7 +18,13 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4otrb"]
 gradient = SubResource("Gradient_my7f5")
 
+[sub_resource type="Curve" id="Curve_my7f5"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_g86f5"]
+curve = SubResource("Curve_my7f5")
 
 [sub_resource type="Curve" id="Curve_m0gx7"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -41,12 +49,14 @@ turbulence_noise_scale = 10.0
 turbulence_noise_speed_random = 3.1
 
 [node name="PlayerDeathParts" type="GPUParticles2D" unique_id=2026184711]
-modulate = Color(0.21568628, 1, 0.101960786, 1)
-self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
+modulate = Color(0.5764706, 1, 0.101960786, 1)
+self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 emitting = false
 amount = 50
 texture = SubResource("GradientTexture2D_tm7k8")
 lifetime = 2.0
+one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_lyo18")
+script = ExtResource("1_tm7k8")

@@ -7,9 +7,9 @@ var hp = 1
 var dmg = 2
 
 func _physics_process(delta: float) -> void:
-	position.x = wrap(position.x,0,4000)
-	position.y = wrap(position.y,0,2500)
-	
+	position.x = wrap(position.x,0,960)
+	position.y = wrap(position.y,0,540)
+
 	seguir(delta)
 	move_and_slide()
 	

@@ -39,4 +39,7 @@ polygon = PackedVector2Array(0.35639763, -1.7933977, 2.811143, -1.7933977, 3.831
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_sf4mh")
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=612190243]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -70,13 +70,6 @@ color = Color(0.53333336, 1, 0.101960786, 1)
 polygon = PackedVector2Array(38.333996, -16.71797, 14, -43, 12, -8)
 uv = PackedVector2Array(34, -16, 14, -43, 12, -8)
 
-[node name="camera" type="Camera2D" parent="." unique_id=547992662]
-limit_enabled = false
-limit_left = 0
-limit_top = 0
-limit_right = 1636
-limit_bottom = 1145
-
 [node name="luz" type="PointLight2D" parent="." unique_id=459571741]
 scale = Vector2(1.7317743, 1.651419)
 texture = SubResource("GradientTexture2D_onrkg")
