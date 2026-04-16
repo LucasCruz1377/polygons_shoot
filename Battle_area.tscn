@@ -57,15 +57,15 @@ position = Vector2(931, 40)
 [node name="spawner4" type="Marker2D" parent="Node" unique_id=1674730259 groups=["spawners"]]
 position = Vector2(39, 509)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1702364142]
+[node name="GUI" type="CanvasLayer" parent="." unique_id=1702364142]
 
-[node name="Fundo" parent="CanvasLayer" unique_id=930752498 instance=ExtResource("3_fu4hl")]
+[node name="Fundo" parent="GUI" unique_id=930752498 instance=ExtResource("3_fu4hl")]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 305.0
 offset_bottom = 73.0
 
-[node name="ContadorPontos" type="Label" parent="CanvasLayer" unique_id=1644039224]
+[node name="ContadorPontos" type="Label" parent="GUI" unique_id=1644039224]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -77,7 +77,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 22
 text = "PONTOS:"
 
-[node name="Pontos" type="Label" parent="CanvasLayer" unique_id=451615583]
+[node name="Pontos" type="Label" parent="GUI" unique_id=451615583]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @onready var ponta: Marker2D = $ponta
 @onready var particles: GPUParticles2D = $particles
-@onready var health_bar: ProgressBar = $"../CanvasLayer/Fundo"
+@onready var health_bar: ProgressBar = $"../GUI/Fundo"
 
 const BULLET = preload("res://fireball.tscn")
 const acceleration = 200.00

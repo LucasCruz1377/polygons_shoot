@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://lrrmsf7mxpy7"]
+
+[ext_resource type="Script" uid="uid://b0fc4t4k7ntyx" path="res://barra_combo.gd" id="1_hmtgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeidl"]
+bg_color = Color(0.6, 0, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pkwq"]
+bg_color = Color(1.4963865, 0, 1.4963865, 1)
+
+[sub_resource type="Animation" id="Animation_sinj0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48]
+}
+
+[sub_resource type="Animation" id="Animation_my07i"]
+resource_name = "combo_pop"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [48, 90, 48]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ixye"]
+_data = {
+&"RESET": SubResource("Animation_sinj0"),
+&"combo_pop": SubResource("Animation_my07i")
+}
+
+[node name="barra_combo" type="ProgressBar" unique_id=40295592]
+offset_left = 1.0
+offset_top = 65.0
+offset_right = 145.0
+offset_bottom = 75.0
+theme_override_styles/background = SubResource("StyleBoxFlat_aeidl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1pkwq")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_hmtgx")
+
+[node name="Label" type="Label" parent="." unique_id=1834415485]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -91.0
+offset_right = -1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "1x"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=100204737]
+libraries/ = SubResource("AnimationLibrary_1ixye")

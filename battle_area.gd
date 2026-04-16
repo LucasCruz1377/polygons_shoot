@@ -4,7 +4,7 @@ extends Node2D
 const TIMER_MAX = 2 * 60
 var timer = TIMER_MAX
 const ENEMY = preload("res://enemy.tscn")
-@onready var contpontos: Label = $CanvasLayer/Pontos
+@onready var contpontos: Label = $GUI/Pontos
 var pontos = 0
 
 func _ready() -> void:
@@ -14,9 +14,9 @@ func _process(_delta: float) -> void:
 	var pontos_tg = Global.Pontos
 	
 	if pontos < pontos_tg:
-		pontos += 1
+		pontos += 0.5
 	
-	contpontos.text = str(pontos) .pad_zeros(5)
+	contpontos.text = str(int(pontos)).pad_zeros(5)
 	
 	if timer >= 0:
 		timer -= 1 
