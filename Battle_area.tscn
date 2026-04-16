@@ -37,7 +37,7 @@ environment = SubResource("Environment_fu4hl")
 
 [node name="espaco" type="Sprite2D" parent="." unique_id=423854753]
 position = Vector2(480, 270)
-scale = Vector2(14.999999, 8.4375)
+scale = Vector2(18.531254, 11.375002)
 texture = SubResource("GradientTexture2D_kdubu")
 
 [node name="CharacterBody2D" parent="." unique_id=1457330626 instance=ExtResource("1_n4gje")]

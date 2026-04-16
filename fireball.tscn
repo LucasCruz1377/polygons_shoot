@@ -32,10 +32,11 @@ texture_scale = 2.9
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=424105477]
 position = Vector2(-0.6610632, 0.56805205)
 scale = Vector2(2.1652658, 1.431948)
-color = Color(0.6117647, 1, 0, 1)
+color = Color(1, 0.24368125, 0, 1)
 polygon = PackedVector2Array(0.35639763, -1.7933977, 2.811143, -1.7933977, 3.8319273, -1.0885699, 4, 0, 3, 1, 0, 1, -1, 0, -0.83451796, -1.161483)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607775460]
+visible = false
 position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_sf4mh")
 
