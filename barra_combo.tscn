@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_my07i"]
 resource_name = "combo_pop"
-length = 0.3
+length = 0.23333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,7 +33,7 @@ tracks/0/path = NodePath("textocombo:theme_override_font_sizes/font_size")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [48, 90, 48]

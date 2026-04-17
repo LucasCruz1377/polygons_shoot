@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c88585sg45tkn" path="res://battle_area.gd" id="1_fu4hl"]
 [ext_resource type="PackedScene" uid="uid://do2fi6mvjjoq1" path="res://player.tscn" id="1_n4gje"]
+[ext_resource type="AudioStream" uid="uid://cosajux0ph2yg" path="res://Sonds/Music of game.mp3" id="2_yn37e"]
 [ext_resource type="PackedScene" uid="uid://cawlfryapqjyx" path="res://barra_vida.tscn" id="3_fu4hl"]
+[ext_resource type="Script" uid="uid://dypv3egvdvjrh" path="res://gui.gd" id="3_x1tvr"]
 [ext_resource type="PackedScene" uid="uid://lrrmsf7mxpy7" path="res://barra_combo.tscn" id="4_qdh06"]
 
 [sub_resource type="Environment" id="Environment_fu4hl"]
@@ -33,6 +35,12 @@ script = ExtResource("1_fu4hl")
 metadata/_edit_horizontal_guides_ = [540.0]
 metadata/_edit_vertical_guides_ = [960.0]
 
+[node name="tocarmusica" type="AudioStreamPlayer2D" parent="." unique_id=1753205192]
+position = Vector2(453, 257)
+scale = Vector2(1.7456002, -14.767745)
+stream = ExtResource("2_yn37e")
+volume_db = 1.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2036701793]
 environment = SubResource("Environment_fu4hl")
 
@@ -59,6 +67,8 @@ position = Vector2(931, 40)
 position = Vector2(39, 509)
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1702364142]
+process_mode = 3
+script = ExtResource("3_x1tvr")
 
 [node name="Fundo" parent="GUI" unique_id=930752498 instance=ExtResource("3_fu4hl")]
 offset_left = 20.0
@@ -95,3 +105,49 @@ offset_left = 21.0
 offset_top = 502.0
 offset_right = 165.0
 offset_bottom = 512.0
+
+[node name="caixa gameover" type="VBoxContainer" parent="GUI" unique_id=488768928]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -58.5
+offset_right = 284.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Tentatdenovotext" type="Label" parent="GUI/caixa gameover" unique_id=164379993]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 41
+text = "PARA TENTAR NOVAMENTE PRESSIONE R "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="caixa pause" type="VBoxContainer" parent="GUI" unique_id=496644049]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -58.5
+offset_right = 284.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="jogopausado" type="Label" parent="GUI/caixa pause" unique_id=213460373]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 41
+text = "JOGO PAUSADO"
+horizontal_alignment = 1
+autowrap_mode = 2

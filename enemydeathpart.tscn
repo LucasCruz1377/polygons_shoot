@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://coyynmarr6r7e"]
 
 [ext_resource type="Script" uid="uid://c07646k0ienly" path="res://enemydeathpart.gd" id="1_85ype"]
+[ext_resource type="AudioStream" uid="uid://bogy4m7ubg1hj" path="res://Sonds/Boom.wav" id="2_3anii"]
 
 [sub_resource type="Gradient" id="Gradient_8h2to"]
 offsets = PackedFloat32Array(0, 0.57608694, 1)
@@ -35,3 +36,7 @@ explosiveness = 1.0
 randomness = 0.26
 process_material = SubResource("ParticleProcessMaterial_3anii")
 script = ExtResource("1_85ype")
+
+[node name="som" type="AudioStreamPlayer2D" parent="." unique_id=1997420391]
+stream = ExtResource("2_3anii")
+autoplay = true

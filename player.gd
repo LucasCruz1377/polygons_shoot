@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var ponta: Marker2D = $ponta
 @onready var particles: GPUParticles2D = $particles
 @onready var health_bar: ProgressBar = $"../GUI/Fundo"
+@onready var somhiperdash: AudioStreamPlayer2D = $somhiperdash
 
 const BULLET = preload("res://fireball.tscn")
 const acceleration = 200.00
@@ -83,6 +84,7 @@ func hiperdash():
 	giroblock = true
 	particles.emitting = true
 	Engine.time_scale = 1
+	somhiperdash.play()
 	velocity += transform.x * SPEED * 10
 	await get_tree().create_timer(0.15).timeout
 	velocity *= 0.05

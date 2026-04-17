@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://s3ie3imatvpt" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://b4dprqgdg4pi0" path="res://player_death_parts.tscn" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://dc7dbsinjkxc0" path="res://Sonds/hiperdash.wav" id="3_i3pqv"]
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 colors = PackedColorArray(0.9843137, 1, 0.27058825, 1, 0, 0, 0, 0)
@@ -90,3 +91,6 @@ amount = 200
 texture = SubResource("GradientTexture2D_i3pqv")
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_dw050")
+
+[node name="somhiperdash" type="AudioStreamPlayer2D" parent="." unique_id=1205847850]
+stream = ExtResource("3_i3pqv")
