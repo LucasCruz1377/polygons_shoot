@@ -10,6 +10,9 @@ func _process(_delta: float) -> void:
 	caixa_pause.visible = get_tree().paused
 	
 	if Input.is_action_just_pressed("reset"):
+		get_tree().paused = false
+		Global.Pontos = 0
+		Global.Combo = 0
 		get_tree().reload_current_scene()
 	
 	

@@ -69,6 +69,7 @@ func brake(delta:float):
 func fire():
 		var instance_bullet = BULLET.instantiate()
 		get_tree().current_scene.add_child(instance_bullet)
+		
 		instance_bullet.global_position = ponta.global_position
 		instance_bullet.rotation = rotation
 		cooldown = CD_MAX
