@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	var pontos_tg = Global.Pontos
 	
 	if pontos < pontos_tg:
-		pontos += 0.5
+		pontos += 5
 	
 	contpontos.text = str(int(pontos)).pad_zeros(5)
 	
@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 		timer -= 1 
 	else:
 		spawnar_enemy()
-		timer = TIMER_MAX
+		timer = randi_range(0,TIMER_MAX)
 		
 func spawnar_enemy():
 	var spawners = get_tree().get_nodes_in_group("spawners")

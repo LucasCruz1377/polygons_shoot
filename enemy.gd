@@ -36,5 +36,6 @@ func die():
 		_particle.emitting = true
 		get_tree().current_scene.add_child(_particle)
 		
-		Global.Pontos += 10
+		Global.Pontos += 10 + (10 * Global.Combo)
+		Global.Combo += 1 
 		queue_free()

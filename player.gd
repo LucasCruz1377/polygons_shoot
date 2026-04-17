@@ -12,8 +12,6 @@ const TURN_SPD = 5.00
 const SPEED = 500.00
 const CD_MAX = 10
 const MAX_HEALTH = 100
-const MAX_SPEED = 5 * SPEED
-const MIN_SPEED = MAX_SPEED * 0.4 * -1 
 
 var health = MAX_HEALTH
 var cooldown = CD_MAX
@@ -22,6 +20,7 @@ var hiperdashing = false
 var vivo = true
 var giroblock = false
 var ctrlblock = false
+var friction = 300.0
 
 func _process(delta: float) -> void:
 	health_bar.value = health
@@ -44,11 +43,14 @@ func _process(delta: float) -> void:
 		if !mouseaim:
 			arrowsctrl(delta)
 	if !ctrlblock and vivo:
-		if Input.is_action_pressed("accelerate") and velocity.length() <= MAX_SPEED:
+		if Input.is_action_pressed("accelerate"):
 			accelerate(delta)
-		if Input.is_action_pressed("brake") and velocity.length() >= MIN_SPEED:
+		if Input.is_action_pressed("brake"):
 			brake(delta)
 			
+	if !Input.is_action_pressed("accelerate"):
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+	
 	if Input.is_action_just_pressed("ui_accept"):
 		hiperdash()
 	if Input.is_action_pressed("fire") and cooldown <= 0 and !hiperdashing:

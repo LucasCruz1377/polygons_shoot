@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c88585sg45tkn" path="res://battle_area.gd" id="1_fu4hl"]
 [ext_resource type="PackedScene" uid="uid://do2fi6mvjjoq1" path="res://player.tscn" id="1_n4gje"]
 [ext_resource type="PackedScene" uid="uid://cawlfryapqjyx" path="res://barra_vida.tscn" id="3_fu4hl"]
+[ext_resource type="PackedScene" uid="uid://lrrmsf7mxpy7" path="res://barra_combo.tscn" id="4_qdh06"]
 
 [sub_resource type="Environment" id="Environment_fu4hl"]
 background_mode = 3
@@ -88,3 +89,9 @@ offset_bottom = 59.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 22
 text = "0"
+
+[node name="barra_combo" parent="GUI" unique_id=40295592 instance=ExtResource("4_qdh06")]
+offset_left = 21.0
+offset_top = 502.0
+offset_right = 165.0
+offset_bottom = 512.0
