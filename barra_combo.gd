@@ -9,8 +9,6 @@ const max_timer = 60 * 5
 var timer = max_timer
 
 func _process(_delta: float) -> void:
-	print("time: "+ str(timer) + "  Combo: " + str(Global.Combo) + "Combo Target: " + str(combotarget))
-	
 	if Global.Combo <= 0:
 		visible = false
 	else:

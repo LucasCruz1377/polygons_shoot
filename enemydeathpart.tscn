@@ -39,4 +39,5 @@ script = ExtResource("1_85ype")
 
 [node name="som" type="AudioStreamPlayer2D" parent="." unique_id=1997420391]
 stream = ExtResource("2_3anii")
+pitch_scale = 1.2
 autoplay = true
