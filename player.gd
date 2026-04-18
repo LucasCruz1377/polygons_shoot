@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var particles: GPUParticles2D = $particles
 @onready var health_bar: ProgressBar = $"../GUI/Fundo"
 @onready var somhiperdash: AudioStreamPlayer2D = $somhiperdash
+@onready var somtiro: AudioStreamPlayer2D = $somtiro
+@onready var hiperdashprepare: AudioStreamPlayer2D = $hiperdashprepare
+@onready var death: AudioStreamPlayer2D = $death
 
 const BULLET = preload("res://fireball.tscn")
 const acceleration = 200.00
@@ -52,9 +55,9 @@ func _process(delta: float) -> void:
 	if !Input.is_action_pressed("accelerate"):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and vivo:
 		hiperdash()
-	if Input.is_action_pressed("fire") and cooldown <= 0 and !hiperdashing:
+	if Input.is_action_pressed("fire") and cooldown <= 0 and !hiperdashing and vivo:
 		fire()
 	
 	move_and_slide() 
@@ -69,7 +72,8 @@ func brake(delta:float):
 func fire():
 		var instance_bullet = BULLET.instantiate()
 		get_tree().current_scene.add_child(instance_bullet)
-		
+		somtiro.pitch_scale = 1 + randf_range(-0.1,0.1)
+		somtiro.play()
 		instance_bullet.global_position = ponta.global_position
 		instance_bullet.rotation = rotation
 		cooldown = CD_MAX
@@ -78,6 +82,7 @@ func arrowsctrl(delta):
 func hiperdash():
 	if hiperdashing:
 		return
+	hiperdashprepare.play()
 	hiperdashing = true
 	ctrlblock = true
 	Engine.time_scale = 0.2
@@ -96,6 +101,8 @@ func hiperdash():
 	giroblock = false
 	particles.emitting = false
 func die():
+	if !death.playing:
+		death.play()
 	velocity *= 0
 	vivo = false
 	var _particle = DeathParticle.instantiate()

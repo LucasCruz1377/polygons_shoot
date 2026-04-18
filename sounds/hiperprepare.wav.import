@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dc7dbsinjkxc0"
-path="res://.godot/imported/hiperdash.wav-fdcddf0f99ac3e70e775b82b8e6f44f3.sample"
+uid="uid://egkrngrl3hst"
+path="res://.godot/imported/hiperprepare.wav-3b79ccade95c0422d734459eff44647d.sample"
 
 [deps]
 
-source_file="res://Sonds/hiperdash.wav"
-dest_files=["res://.godot/imported/hiperdash.wav-fdcddf0f99ac3e70e775b82b8e6f44f3.sample"]
+source_file="res://sounds/hiperprepare.wav"
+dest_files=["res://.godot/imported/hiperprepare.wav-3b79ccade95c0422d734459eff44647d.sample"]
 
 [params]
 

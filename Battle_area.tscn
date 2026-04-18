@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c88585sg45tkn" path="res://battle_area.gd" id="1_fu4hl"]
 [ext_resource type="PackedScene" uid="uid://do2fi6mvjjoq1" path="res://player.tscn" id="1_n4gje"]
-[ext_resource type="AudioStream" uid="uid://cosajux0ph2yg" path="res://Sonds/Music of game.mp3" id="2_yn37e"]
+[ext_resource type="AudioStream" uid="uid://cosajux0ph2yg" path="res://sounds/gamemusic.mp3" id="2_yn37e"]
 [ext_resource type="PackedScene" uid="uid://cawlfryapqjyx" path="res://barra_vida.tscn" id="3_fu4hl"]
 [ext_resource type="Script" uid="uid://dypv3egvdvjrh" path="res://gui.gd" id="3_x1tvr"]
 [ext_resource type="PackedScene" uid="uid://lrrmsf7mxpy7" path="res://barra_combo.tscn" id="4_qdh06"]
