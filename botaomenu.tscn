@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bs0wfso1c5o1a"]
+
+[ext_resource type="StyleBox" uid="uid://csm4drqks8gea" path="res://botaooutlineglow.tres" id="1_n7h0m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5xam"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.9747176, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Button" type="Button" unique_id=2034343078]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = ExtResource("1_n7h0m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p5xam")
+theme_override_styles/hover = ExtResource("1_n7h0m")
+text = "Voltar pro menu inicial"

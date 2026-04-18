@@ -16,3 +16,12 @@ func _process(_delta: float) -> void:
 		get_tree().reload_current_scene()
 	
 	
+func _on_tentar_de_novo_pressed() -> void:
+		get_tree().paused = false
+		Global.Pontos = 0
+		Global.Combo = 0
+		get_tree().reload_current_scene()
+
+
+func _on_despause_pressed() -> void:
+	get_tree().paused = false

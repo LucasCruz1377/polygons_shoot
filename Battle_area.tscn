@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cawlfryapqjyx" path="res://barra_vida.tscn" id="3_fu4hl"]
 [ext_resource type="Script" uid="uid://dypv3egvdvjrh" path="res://gui.gd" id="3_x1tvr"]
 [ext_resource type="PackedScene" uid="uid://lrrmsf7mxpy7" path="res://barra_combo.tscn" id="4_qdh06"]
+[ext_resource type="PackedScene" uid="uid://bs0wfso1c5o1a" path="res://botaomenu.tscn" id="7_rruo3"]
 
 [sub_resource type="Environment" id="Environment_fu4hl"]
 background_mode = 3
@@ -40,6 +41,7 @@ position = Vector2(453, 257)
 scale = Vector2(1.7456002, -14.767745)
 stream = ExtResource("2_yn37e")
 volume_db = 1.0
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2036701793]
 environment = SubResource("Environment_fu4hl")
@@ -121,18 +123,25 @@ offset_right = 284.0
 offset_bottom = 58.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="Tentatdenovotext" type="Label" parent="GUI/caixa gameover" unique_id=164379993]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 41
-text = "PARA TENTAR NOVAMENTE PRESSIONE R "
+text = "VOCÊ MORREU"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Tentar de novo" parent="GUI/caixa gameover" unique_id=2034343078 instance=ExtResource("7_rruo3")]
+layout_mode = 2
+text = "Tentar novamente"
+
+[node name="Voltarmenu2" parent="GUI/caixa gameover" unique_id=787826253 instance=ExtResource("7_rruo3")]
+layout_mode = 2
+
 [node name="caixa pause" type="VBoxContainer" parent="GUI" unique_id=496644049]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -144,6 +153,7 @@ offset_right = 284.0
 offset_bottom = 58.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="jogopausado" type="Label" parent="GUI/caixa pause" unique_id=213460373]
@@ -153,3 +163,13 @@ theme_override_font_sizes/font_size = 41
 text = "JOGO PAUSADO"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="voltarmenu" parent="GUI/caixa pause" unique_id=497244504 instance=ExtResource("7_rruo3")]
+layout_mode = 2
+
+[node name="despause" parent="GUI/caixa pause" unique_id=1820316957 instance=ExtResource("7_rruo3")]
+layout_mode = 2
+text = "Despausar Jogo"
+
+[connection signal="pressed" from="GUI/caixa gameover/Tentar de novo" to="GUI" method="_on_tentar_de_novo_pressed"]
+[connection signal="pressed" from="GUI/caixa pause/despause" to="GUI" method="_on_despause_pressed"]
