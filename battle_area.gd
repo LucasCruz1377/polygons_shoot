@@ -23,9 +23,9 @@ func _process(_delta: float) -> void:
 	var pontos_tg = Global.Pontos
 	players = get_tree().get_nodes_in_group("player")
 	if pontos < pontos_tg:
-		pontos = lerpf(pontos,pontos_tg,0.9)
+		pontos += 1 * Global.Combo
 	
-	contpontos.text = str(int(pontos)).pad_zeros(5)
+	contpontos.text = str(int(pontos)).pad_zeros(8)
 	
 	if timer >= 0:
 		timer -= 1 
