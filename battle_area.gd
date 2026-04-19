@@ -6,6 +6,7 @@ extends Node2D
 @onready var caixa_gameover: VBoxContainer = $"GUI/caixa gameover"
 @onready var tocarmusica: AudioStreamPlayer2D = $tocarmusica
 
+
 const ENEMY = preload("res://enemy.tscn")
 const TIMER_MAX = 2 * 60
 

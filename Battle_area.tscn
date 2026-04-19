@@ -40,7 +40,7 @@ metadata/_edit_vertical_guides_ = [960.0]
 position = Vector2(453, 257)
 scale = Vector2(1.7456002, -14.767745)
 stream = ExtResource("2_yn37e")
-volume_db = 1.0
+volume_db = -7.0
 autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2036701793]
