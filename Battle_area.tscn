@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dypv3egvdvjrh" path="res://gui.gd" id="3_x1tvr"]
 [ext_resource type="PackedScene" uid="uid://lrrmsf7mxpy7" path="res://barra_combo.tscn" id="4_qdh06"]
 [ext_resource type="PackedScene" uid="uid://bs0wfso1c5o1a" path="res://botaomenu.tscn" id="7_rruo3"]
+[ext_resource type="PackedScene" uid="uid://xojwpysblfm4" path="res://aim.tscn" id="8_rpa0l"]
 
 [sub_resource type="Environment" id="Environment_fu4hl"]
 background_mode = 3
@@ -170,6 +171,8 @@ layout_mode = 2
 [node name="despause" parent="GUI/caixa pause" unique_id=1820316957 instance=ExtResource("7_rruo3")]
 layout_mode = 2
 text = "Despausar Jogo"
+
+[node name="aim" parent="." unique_id=525751855 instance=ExtResource("8_rpa0l")]
 
 [connection signal="pressed" from="GUI/caixa gameover/Tentar de novo" to="GUI" method="_on_tentar_de_novo_pressed"]
 [connection signal="pressed" from="GUI/caixa pause/despause" to="GUI" method="_on_despause_pressed"]

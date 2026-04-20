@@ -16,6 +16,7 @@ var timer = TIMER_MAX
 var pontos = 0
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	players = get_tree().get_nodes_in_group("player")
 	tocarmusica.play()
 func _process(_delta: float) -> void:
@@ -35,6 +36,7 @@ func _process(_delta: float) -> void:
 		timer = randi_range(0,TIMER_MAX)
 		
 	if players.size() <= 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		caixa_gameover.visible = true
 		
 func spawnar_enemy():
